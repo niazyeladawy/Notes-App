@@ -30,7 +30,7 @@ function Navbar() {
                     <div className="navbar__right">
                         {
                             location.pathname === "/" ? <div>
-                                <a href="ssd">hi {decoded.first_name}</a>
+                                <a href="ssd">hi {decoded ? decoded.first_name : ""}</a>
                                 <NavLink to="/login" onClick={logout} className={({ isActive }) => (isActive ? 'activelink' : 'inactivelink')}>
                                     logout
                                 </NavLink>

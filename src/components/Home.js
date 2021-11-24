@@ -15,6 +15,8 @@ function Home() {
         token
     });
 
+    const [emptyData, setEmptyData] = useState(false)
+
 
     const [noteID, setNoteID] = useState("");
     const [updateNoteID, setUpdateNoteID] = useState("");
@@ -38,8 +40,12 @@ function Home() {
         if(data.message === "success"){
             setgetNotesLoading(false);
             setAllnotes(data.Notes);
+            setEmptyData(false);
         }
-        
+        else{
+            setgetNotesLoading(false);
+            setEmptyData(true);
+        }
     }
 
     useEffect(() => {
@@ -189,6 +195,9 @@ function Home() {
                                 </div>
                             )
                         })
+                    }
+                    {
+                        emptyData && <h2>empty data</h2>
                     }
 
                 </div>
